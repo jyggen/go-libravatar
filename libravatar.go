@@ -35,7 +35,9 @@ const (
 	// generated faces with differing features and backgrounds
 	Wavatar = "wavatar"
 	// awesome generated, 8-bit arcade-style pixelated faces
-	Retro = "retro"
+	Retro    = "retro"
+	Robohash = "robohash"
+	Pagan    = "pagan"
 )
 
 var (
@@ -110,6 +112,12 @@ func (v *Libravatar) SetUseHTTPS(use bool) {
 // SetAvatarSize sets avatars image dimension (0 for default)
 func (v *Libravatar) SetAvatarSize(size uint) {
 	v.size = size
+}
+
+// SetDefaultURL sets the URL to use when an image is requested for
+// an email address without a Libravatar account. A few special values are also allowed
+func (v *Libravatar) SetDefaultURL(defURL string) {
+	v.defURL = defURL
 }
 
 // generate hash, either with email address or OpenID
